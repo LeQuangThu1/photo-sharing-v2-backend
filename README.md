@@ -1,1 +1,1 @@
-photo-sharing-v2-frontend
+photo-sharing-v2-backend
