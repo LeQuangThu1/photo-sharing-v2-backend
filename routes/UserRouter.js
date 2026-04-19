@@ -13,7 +13,9 @@ router.get("/list", async (request, response) => {
 
 router.get("/:id", async (request, response) => {
   try {
-    const user = await User.findById(request.params.id).select("_id first_name last_name location description occupation");
+    const user = await User.findById(request.params.id).select(
+      "_id first_name last_name location description occupation"
+    );
     if (!user) {
       return response.status(400).send({ error: "User not found" });
     }
@@ -23,12 +25,10 @@ router.get("/:id", async (request, response) => {
   }
 });
 
-router.post("/", async (request, response) => {
-  
-});
+router.post("/", async (request, response) => {});
 
 router.get("/", async (request, response) => {
-  
+  response.send({ message: "user" });
 });
 
 module.exports = router;

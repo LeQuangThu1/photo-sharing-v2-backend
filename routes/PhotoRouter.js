@@ -17,7 +17,9 @@ router.get("/:id", async (request, response) => {
         const photoObj = p.toObject();
         const commentsWithUser = await Promise.all(
           photoObj.comments.map(async (c) => {
-            const commentUser = await User.findById(c.user_id).select("_id first_name last_name");
+            const commentUser = await User.findById(c.user_id).select(
+              "_id first_name last_name"
+            );
             return {
               _id: c._id,
               comment: c.comment,
@@ -42,12 +44,10 @@ router.get("/:id", async (request, response) => {
   }
 });
 
-router.post("/", async (request, response) => {
-  
-});
+router.post("/", async (request, response) => {});
 
 router.get("/", async (request, response) => {
-  
+  response.send("hello messi");
 });
 
 module.exports = router;
